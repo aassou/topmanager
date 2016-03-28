@@ -4940,7 +4940,7 @@ Bootstrap Tree CSS changes(new in v1.1.2)
 .autocomplet_container ul li:hover {
 	background: #eaeaea;
 }
-#client_list_id, #source_list_id, #service_list_id, #topographe_list_id, #province_list_id,
+#client_list, #source_list, #service_list, #topographe_list, #province_list_id,
 #municipalite_list_id, #commune_list_id, #quartier_list_id, #sousquartier_list_id,
 #objet_list, #architecte_list, #type_list, #ilot_list, #lot_list, #nature_list
 {

@@ -102,11 +102,7 @@
 				<!-- BEGIN CONDENSED TABLE PORTLET-->
 						<div class="portlet box grey">
 							<div class="portlet-title">
-								<h4><i class="icon-calendar"></i>Liste des affaires</h4>
-								<!--div class="tools">
-									<a href="javascript:;" class="collapse"></a>
-									<a href="javascript:;" class="remove"></a>
-								</div-->
+								<h4>Liste des affaires : <?= $mois."/".$annee ?></h4>
 							</div>
 							<div class="portlet-body">
 							    <div class="clearfix">
@@ -116,15 +112,6 @@
                                             Ajouter Nouvelle Affaire
                                         </a>
                                     </div>
-                                    <!--div class="btn-group pull-right">
-                                        <button class="btn dropdown-toggle" data-toggle="dropdown">Outils <i class="icon-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Print</a></li>
-                                            <li><a href="#">Save as PDF</a></li>
-                                            <li><a href="#">Export to Excel</a></li>
-                                        </ul>
-                                    </div-->
                                 </div>
 								<?php if(isset($_SESSION['affaire-regler-sucess'])){ ?>
                                  	<div class="alert alert-success">
@@ -137,17 +124,14 @@
 								<table class="table table-striped table-bordered table-hover" id="sample_1">
 									<thead>
 										<tr>
-										    <th style="width:15%">Actions</th>
+										    <th style="width:10%">Actions</th>
+										    <th style="width:10%">N°Affaire</th>
 											<th style="width:10%">Date Sortie</th>
-											<th style="width:25%">Client</th>
-											<!--th style="width:10%">Propriété</th-->
+											<th style="width:20%">Client</th>
+											<th style="width:10%">Tél.Client</th>
 											<th style="width:10%">Nature</th>
 											<th style="width:10%">Prix</th>
 											<th style="width:10%">Payé</th>
-											<!--th>Reste</th-->
-											<th style="width:10%">Tel1</th>
-											<!--th>Tel2</th>
-											<th>Mandat</th-->
 											<th style="width:10%">Status</th>
 										</tr>
 									</thead>
@@ -162,58 +146,36 @@
 											$status = $affaire->status();
                                             $statusText = "";
 											//$link="";
-											if ( $status == "encours" ) {
-												$color="label-success";
-												$statusText = "En cours";
+											if ( $status == "Encours" ) {
+												$color="label-important";
 											}
-											else if ( $status == "terminee" ) {
+											else if ( $status == "Terminee" ) {
 												$color = "label-success";
-                                                $statusText = "Terminée";
-												//$link = "archive-affaire.php?idAffaire=".$affaire->id();
 											}
 											else if ( $status == "archivee" ) {
 												$color = "label-inverse";
-                                                $statusText = "Archivée";
 											}
 									?>
 										<tr class="odd gradeX">
 											<td>
-									        	<a title="Consulter Paiements" class="btn mini" href="paiements.php?idAffaire=<?= $affaire->id() ?>">
-									        		<i class="icon-money"></i>
+									        	<a title="Imprimer Affaire" class="btn mini" href="controller/AffairePrintController.php?idAffaire=<?= $affaire->id() ?>">
+									        		<i class="icon-print"></i>
 									        	</a>
-									        	<a title="Modifier" class="btn mini green" href="archive-affaire.php?idAffaire=<?= $affaire->id() ?>">
+									        	<a title="Modifier" class="btn mini green" href="affaire-update.php?idAffaire=<?= $affaire->id() ?>&mois=<?= $mois ?>&annee=<?= $annee ?>">
                                                     <i class="icon-refresh"></i>
                                                 </a>
 									        	<a title="Supprimer" class="btn mini red" href="#deleteAffaire<?php echo $affaire->id();?>" data-toggle="modal" data-id="<?php echo $affaire->id(); ?>">
 									        		<i class="icon-remove"></i>
 									        	</a>
-									        	<?php 
-                                                if ( $status == "archivee" ) { 
-                                                ?>
-                                                <a title="Consulter Archive" class="btn mini black" href="affaires-documents.php?idAffaire=<?= $affaire->id() ?>">
-                                                    <i class="icon-folder-open"></i>
-                                                </a>
-                                                <?php 
-                                                } 
-                                                ?>
 											</td>
+											<td><?= $affaire->numero() ?></td>
 											<td><?= date("d/m/Y", strtotime($affaire->dateRdv())) ?></td>
-											<td><?= $clientManager->getClientById($affaire->idClient())->nom() ?></td>
-											<!--td><?= $affaire->propriete() ?></td-->
+											<td><?= $affaire->nomClient() ?></td>
+											<td><?= $affaire->telephoneClient() ?></td>
 											<td><?= $affaire->nature() ?></td>
 											<td><?= number_format($affaire->prix(), 2, ',', ' ') ?></td>
 											<td><?= number_format($affaire->paye(), 2, ',', ' ') ?></td>
-											<!--td><?php //echo $affaire->prix()-$affaire->paye() ?></td-->
-											<td><?= $clientManager->getClientById($affaire->idClient())->numeroTelefon() ?></td>
-											<!--td>
-											    <?php 
-											    /*if ( $affaire->idSource()!=0 and $affaire->idSource()!='NULL' ) {
-											         echo $sourceManager->getSourceById($affaire->idSource())->numeroTelefon(); 
-                                                }*/ 
-											    ?>
-											</td-->
-											<!--td><?php //echo $affaire->mandataire() ?></td-->
-											<td><span class="label <?= $color ?>"><?= $statusText ?></span></td>
+											<td><span class="label <?= $color ?>"><?= $affaire->status() ?></span></td>
 										</tr>
 										<!-- delete affaire box begin-->
 										<div id="deleteAffaire<?php echo $affaire->id();?>" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
@@ -222,10 +184,12 @@
 												<h3>Supprimer l'Affaire</h3>
 											</div>
 											<div class="modal-body">
-												<form class="form-horizontal loginFrm" action="controller/DeleteAffaireController.php" method="post">
+												<form class="form-horizontal loginFrm" action="controller/AffaireActionController.php" method="post">
 													<p>Êtes-vous sûr de vouloir supprimer cette affaire ?</p>
 													<div class="control-group">
-														<label class="right-label"></label>
+													    <input type="hidden" name="action" value="delete" />
+													    <input type="hidden" name="mois" value="<?= $mois ?>" />
+													    <input type="hidden" name="annee" value="<?= $annee ?>" />
 														<input type="hidden" name="idAffaire" value="<?= $affaire->id() ?>" />
 														<button class="btn" data-dismiss="modal"aria-hidden="true">Non</button>
 														<button type="submit" class="btn red" aria-hidden="true">Oui</button>

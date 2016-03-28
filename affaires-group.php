@@ -102,41 +102,19 @@
                             unset($_SESSION['affaire-action-message']);
                             unset($_SESSION['affaire-type-message']);
                          ?>
-                       <div class="portlet box light-grey">
+                       <div class="portlet box grey">
                             <div class="portlet-title">
                                 <h4>Liste des affaires groupées</h4>
-                                <div class="tools">
-                                    <a href="javascript:;" class="reload"></a>
-                                </div>
                             </div>
                             <div class="portlet-body">
                                 <div class="clearfix">
-                                    <?php
-                                    if ( 
-                                        $_SESSION['userMerlaTrav']->profil() == "admin" ||
-                                        $_SESSION['userMerlaTrav']->profil() == "manager" 
-                                        ) {
-                                    ?>
                                     <div class="btn-group pull-left">
                                         <a class="btn blue" href="add-affaire.php?source=1">
                                             <i class="icon-plus-sign"></i>
                                              Ajouter Nouvelle Affaire
                                         </a>
                                     </div>
-                                    <?php
-                                    }
-                                    ?>
-                                    <!--div class="btn-group pull-right">
-                                        <button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="icon-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Print</a></li>
-                                            <li><a href="#">Save as PDF</a></li>
-                                            <li><a href="#">Export to Excel</a></li>
-                                        </ul>
-                                    </div-->
                                 </div>
-                                <!--div class="scroller" data-height="500px" data-always-visible="1"--><!-- BEGIN DIV SCROLLER -->
                                 <table class="table table-striped table-bordered table-hover" id="sample_1">
                                     <thead>
                                         <tr>
@@ -163,7 +141,6 @@
                                         ?>
                                     </tbody>
                                 </table>
-                                </div><!-- END DIV SCROLLER -->
                             </div>
                            </div>
                         </div>

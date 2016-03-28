@@ -3,12 +3,16 @@ class Affaire{
 
 	//attributes
 	private $_id;
+    private $_numero;
 	private $_dateRdv;
 	private $_heureRdv;
 	private $_dateSortie;
 	private $_nature;
 	private $_prix;
 	private $_paye;
+    private $_nomClient;
+    private $_cinClient;
+    private $_telephoneClient;
 	private $_mandataire;
 	private $_status;
 	private $_idTopographe;
@@ -21,8 +25,17 @@ class Affaire{
 	private $_quartier;
 	private $_sousquartier;
 	private $_propriete;
+    private $_nomTopographe;
+    private $_telephoneTopographe;
+    private $_codeTopographe;
 	private $_montantTopographe;
+    private $_nomService;
+    private $_telephoneService;
+    private $_codeService;
 	private $_montantService;
+    private $_nomSource;
+    private $_telephoneSource;
+    private $_codeSource;
 	private $_montantSource;
 	private $_created;
 	private $_createdBy;
@@ -49,6 +62,11 @@ class Affaire{
 	public function setId($id){
     	$this->_id = $id;
     }
+    
+    public function setNumero($numero){
+        $this->_numero = $numero;
+    }
+    
 	public function setDateRdv($dateRdv){
 		$this->_dateRdv = $dateRdv;
    	}
@@ -72,6 +90,18 @@ class Affaire{
 	public function setPaye($paye){
 		$this->_paye = $paye;
    	}
+
+    public function setNomClient($nomClient){
+        $this->_nomClient = $nomClient;
+    }
+    
+    public function setCinClient($cinClient){
+        $this->_cinClient = $cinClient;
+    }
+    
+    public function setTelephoneClient($telephoneClient){
+        $this->_telephoneClient = $telephoneClient;
+    }
 
 	public function setMandataire($mandataire){
 		$this->_mandataire = $mandataire;
@@ -121,17 +151,41 @@ class Affaire{
 		$this->_propriete = $propriete;
    	}
 
+    public function setNomTopographe($nomTopographe){
+        $this->_nomTopographe = $nomTopographe;
+    }
+    
+    public function setTelephoneTopographe($telephoneTopographe){
+        $this->_telephoneTopographe = $telephoneTopographe;
+    }
+
 	public function setMontantTopographe($montantTopographe){
 		$this->_montantTopographe = $montantTopographe;
    	}
+
+    public function setNomService($nomService){
+        $this->_nomService = $nomService;
+    }
+    
+    public function setTelephoneService($telephoneService){
+        $this->_telephoneService = $telephoneService;
+    }
 
 	public function setMontantService($montantService){
 		$this->_montantService = $montantService;
    	}
 
-	public function setMontantSource($montantSource){
-		$this->_montantSource = $montantSource;
-   	}
+    public function setNomSource($nomSource){
+        $this->_nomSource = $nomSource;
+    }
+    
+    public function setTelephoneSource($telephoneSource){
+        $this->_telephoneSource = $telephoneSource;
+    }
+
+    public function setMontantSource($montantSource){
+        $this->_montantSource = $montantSource;
+    }
 
 	public function setCreated($created){
         $this->_created = $created;
@@ -153,6 +207,11 @@ class Affaire{
 	public function id(){
     	return $this->_id;
     }
+    
+    public function numero(){
+        return $this->_numero;
+    }
+    
 	public function dateRdv(){
 		return $this->_dateRdv;
    	}
@@ -176,6 +235,18 @@ class Affaire{
 	public function paye(){
 		return $this->_paye;
    	}
+
+    public function nomClient(){
+        return $this->_nomClient;
+    }
+    
+    public function cinClient(){
+        return $this->_cinClient;
+    }
+    
+    public function telephoneClient(){
+        return $this->_telephoneClient;
+    }
 
 	public function mandataire(){
 		return $this->_mandataire;
@@ -225,14 +296,38 @@ class Affaire{
 		return $this->_propriete;
    	}
 
+    public function nomTopographe(){
+        return $this->_nomTopographe;
+    }
+    
+    public function telephoneTopographe(){
+        return $this->_telephoneTopographe;
+    }
+    
 	public function montantTopographe(){
 		return $this->_montantTopographe;
    	}
 
+    public function nomService(){
+        return $this->_nomService;
+    }
+    
+    public function telephoneService(){
+        return $this->_telephoneService;
+    }
+
 	public function montantService(){
 		return $this->_montantService;
    	}
-
+    
+    public function nomSource(){
+        return $this->_nomSource;
+    }
+    
+    public function telephoneSource(){
+        return $this->_telephoneSource;
+    }
+    
 	public function montantSource(){
 		return $this->_montantSource;
    	}

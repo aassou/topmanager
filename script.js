@@ -1,19 +1,19 @@
 function autocomplet() {
 	var min_length = 1; // min caracters to display the autocomplete
-	var keyword = $('#client_id').val();
+	var keyword = $('#nomClient').val();
 	if (keyword.length >= min_length) {
 		$.ajax({
 			url: 'ajax_refresh.php',
 			type: 'POST',
 			data: {keyword:keyword},
 			success:function(data){
-				$('#client_list_id').show();
-				$('#client_list_id').html(data);
+				$('#client_list').show();
+				$('#client_list').html(data);
 			}
 		});
 	} 
 	else {
-		$('#client_list_id').hide();
+		$('#client_list').hide();
 	}
 }
 //autocomplet nature
@@ -133,58 +133,58 @@ function autocomplet_sousquartier() {
 //autocomplet topographes
 function autocomplet_topographe() {
 	var min_length = 1; // min caracters to display the autocomplete
-	var keyword = $('#topographe_id').val();
+	var keyword = $('#nomTopographe').val();
 	if (keyword.length >= min_length) {
 		$.ajax({
 			url: 'ajax_refresh_topographe.php',
 			type: 'POST',
 			data: {keyword:keyword},
 			success:function(data){
-				$('#topographe_list_id').show();
-				$('#topographe_list_id').html(data);
+				$('#topographe_list').show();
+				$('#topographe_list').html(data);
 			}
 		});
 	} 
 	else {
-		$('#topographe_list_id').hide();
+		$('#topographe_list').hide();
 	}
 }
 //autocomplet services
 function autocomplet_service() {
 	var min_length = 1; // min caracters to display the autocomplete
-	var keyword = $('#service_id').val();
+	var keyword = $('#nomService').val();
 	if (keyword.length >= min_length) {
 		$.ajax({
 			url: 'ajax_refresh_service.php',
 			type: 'POST',
 			data: {keyword:keyword},
 			success:function(data){
-				$('#service_list_id').show();
-				$('#service_list_id').html(data);
+				$('#service_list').show();
+				$('#service_list').html(data);
 			}
 		});
 	} 
 	else {
-		$('#service_list_id').hide();
+		$('#service_list').hide();
 	}
 }
 //autocomplet sources
 function autocomplet_source() {
 	var min_length = 1; // min caracters to display the autocomplete
-	var keyword = $('#source_id').val();
+	var keyword = $('#nomSource').val();
 	if (keyword.length >= min_length) {
 		$.ajax({
 			url: 'ajax_refresh_source.php',
 			type: 'POST',
 			data: {keyword:keyword},
 			success:function(data){
-				$('#source_list_id').show();
-				$('#source_list_id').html(data);
+				$('#source_list').show();
+				$('#source_list').html(data);
 			}
 		});
 	} 
 	else {
-		$('#source_list_id').hide();
+		$('#source_list').hide();
 	}
 }
 //autocomplet zone
@@ -207,14 +207,13 @@ function autocomplet_zone() {
 	}
 }
 // set_item client : this function will be executed when we select an item
-function set_item(item, item2, item3, item4){
+function set_item(item, item2, item3){
 	// change input value
-	$('#client_id').val(item);
-	$('#cin').val(item2);
-	$('#numeroTelefon1').val(item3);
-	$('#idClient').val(item4);
+	$('#nomClient').val(item);
+	$('#cinClient').val(item2);
+	$('#telephoneClient').val(item3);
 	// hide proposition list
-	$('#client_list_id').hide();
+	$('#client_list').hide();
 }
 // set_item nature : this function will be executed when we select an item
 function set_item_nature(item){
@@ -264,29 +263,26 @@ function set_item_sousquartier(item, item2){
 	$('#sousquartier_list_id').hide();
 }
 // set_item_topo : this function will be executed when we select an item
-function set_item_topographe(item1, item2){
+function set_item_topographe(item1){
 	// change input value
-	$('#topographe_id').val(item1);
-	$('#idTopographe').val(item2);
+	$('#nomTopographe').val(item1);
 	// hide proposition list
-	$('#topographe_list_id').hide();
+	$('#topographe_list').hide();
 }
 // set_item_service : this function will be executed when we select an item
-function set_item_service(item1, item2){
+function set_item_service(item1){
 	// change input value
-	$('#service_id').val(item1);
-	$('#idService').val(item2);
+	$('#nomService').val(item1);
 	// hide proposition list
-	$('#service_list_id').hide();
+	$('#service_list').hide();
 }
 // set_item_source : this function will be executed when we select an item
-function set_item_source(item1, item2, item3){
+function set_item_source(item1, item2){
 	// change input value
-	$('#source_id').val(item1);
-	$('#numeroTelefon2').val(item2);
-	$('#idSource').val(item3);
+	$('#nomSource').val(item1);
+	$('#telephoneSource').val(item2);
 	// hide proposition list
-	$('#source_list_id').hide();
+	$('#source_list').hide();
 }
 // set_item_zone : this function will be executed when we select an item
 function set_item_zone(item){

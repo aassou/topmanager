@@ -1,7 +1,7 @@
 <div class="navbar-inner">
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
-				<a class="brand" href="http://192.168.1.2/TopEntreprise">
+				<a class="brand">
 				<img src="assets/img/big-logo.png" alt="logo" />
 				</a>
 				<!-- END LOGO -->

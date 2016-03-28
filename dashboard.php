@@ -82,20 +82,6 @@
 				<!-- END PAGE HEADER-->
 				<!-- BEGIN PAGE CONTENT-->
 				<div class="tiles">
-					<?php //if($_SESSION['user']->login()=="mohamed" or $_SESSION['user']->login()=="karim"){ ?>	
-					<a href="caisse-automatisee.php">
-					<div class="tile bg-grey">
-						<div class="tile-body">
-							<i class="icon-money"></i>
-						</div>
-						<div class="tile-object">
-							<div class="name">
-								La caisse
-							</div>
-						</div>
-					</div>
-					</a>
-					<?php //} ?>
 					<a href="rendez-vous.php">
 					<div class="tile bg-green">
 						<div class="tile-body">
@@ -103,7 +89,7 @@
 						</div>
 						<div class="tile-object">
 							<div class="name">
-								Rendez-vous
+								Les rendez-vous
 							</div>
 							<div class="number">
 							</div>
@@ -118,7 +104,7 @@
 						</div>
 						<div class="tile-object">
 							<div class="name">
-								Les Affaires
+								Les affaires
 							</div>
 							<div class="number">
 							</div>
@@ -139,26 +125,28 @@
 						</div>
 					</div>
 					</a>
-					<a href="conges.php">
-					<div class="tile bg-yellow">
-						<div class="tile-body">
-							<i class="icon-plane"></i>
-						</div>
-						<div class="tile-object">
-							<div class="name">
-								Congés et Jours Supplémentaires
-							</div>
-						</div>
-					</div>
-					</a>
-					<a href="recherches.php">
+					<?php //if($_SESSION['user']->login()=="mohamed" or $_SESSION['user']->login()=="karim"){ ?>   
+                    <a href="caisse-automatisee.php">
+                    <div class="tile bg-grey">
+                        <div class="tile-body">
+                            <i class="icon-money"></i>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name">
+                                La caisse
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                    <?php //} ?>
+					<a href="configuration.php">
 					<div class="tile bg-red">
 						<div class="tile-body">
-							<i class="icon-search"></i>
+							<i class="icon-wrench"></i>
 						</div>
 						<div class="tile-object">
 							<div class="name">
-								Rechercher
+								Paramètrages
 							</div>
 						</div>
 					</div>

@@ -15,25 +15,28 @@
 				<li class="start <?php if($currentPage=="dashboard.php" 
 				or $currentPage=="recherches.php"
 				or $currentPage=="conges.php"
+				or $currentPage=="configuration.php"
 				or $currentPage=="conges-search.php"
 				or $currentPage=="factures-search.php"
 				or $currentPage=="users.php"){echo "active ";} ?>">
 					<a href="dashboard.php">
 					<i class="icon-home"></i> 
 					<span class="title">Accueil</span>
-					<span class="<?php if($currentPage=="dashboard.php"){echo "selected";} ?>"></span>
+					<span class="<?php if ( $currentPage == "dashboard.php" ) { echo "selected"; } ?>"></span>
 					</a>
 				</li>
 				<!---------------------------- Dashboard End    -------------------------------------------->
 				<!---------------------------- Affaires Topographe Begin ----------------------------------->
 				<?php 
 					$affairesTopographeClass="";
-					if($currentPage=="sources.php" || 
-					$currentPage=="services.php" or $currentPage=="topographes.php"
+					if($currentPage=="sources.php" 
+					or $currentPage=="services.php" 
+					or $currentPage=="topographes.php"
 					or $currentPage=="rendez-vous.php"
 					or $currentPage=="add-rendez-vous.php"
 					or $currentPage=="update-rendez-vous.php"
 					or $currentPage=="affaires.php"
+					or $currentPage=="affaire-update.php"
 					or $currentPage=="affaires-group.php"
 					or $currentPage=="add-affaire.php"
 					or $currentPage=="clients.php"
